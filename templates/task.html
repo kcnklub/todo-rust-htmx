@@ -1,0 +1,13 @@
+<div id="{{id}}">
+
+    <b>{{title}}</b>
+    <input 
+        type="checkbox" 
+        hx-put="/tasks/{{id}}" 
+        hx-target="#{{id}}"
+        hx-trigger="change"
+        {%- if completed -%}
+        checked
+        {%- endif -%}
+    ></input>
+</div>

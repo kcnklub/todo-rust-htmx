@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>Home</title>
+    <script src="https://unpkg.com/htmx.org@2.0.1"
+        integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/"
+        crossorigin="anonymous"></script>
+    <link href="/assets/output.css" rel="stylesheet">
+</head>
+
+<body class="p-4 bg-slate-100">
+    <div class="flex flex-row w-full justify-items-center">
+        <h1 class="flex-auto font-bold text-4xl">Home</h1>
+        <p class="flex-auto self-center">Welcome another todo app.</p>
+    </div>
+    <div id="createform">
+        <form hx-post="/tasks" hx-target="#tasks" hx-swap="beforeend">
+            <input type="text" name="title" placeholder="Task" required>
+            <button type="submit" class="bg-green-200 px-2 border-slate-300 rounded-md">Add</button>
+        </form>
+    </div>
+    <h2>Tasks</h2>
+    <div>
+        <ul id="tasks" hx-get="/tasks" hx-trigger="load" hx-target="#tasks"></ul>
+    </div>
+</body>
+
+</html>
